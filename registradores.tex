@@ -1,0 +1,10 @@
+\section{Registradores}
+
+ARM possui 31 registradores de proposito geral de 32 bits. A qualquer momento, 16 estão visíveis, os outros 15 são usados para acelerar processamento de exceção. Dois dos registradores visíveis possuem regras especiais:
+
+\begin{description}
+	\item[Link register] o registrador 14, que guarda o endereço da próxima instrução depois uma uma instrução Branch and link, que é explicada em \ref{instrucao_ramificacao}
+	\item[Program counter] o registrador 15, aponta para a próxima instrução
+\end{description}
+
+Os outros 14 registradores visíveis não possuem proposito especial no hardware, porem, normalmente, o registrador 13 é usado para Stack Pointer.

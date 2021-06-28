@@ -1,0 +1,53 @@
+\section{Instruções ARM}
+
+as instruções ARM podem ser divididas em 6 classes:
+\begin{enumerate}
+	\item Instruções de ramificação
+	\item Instruções de processamento de dados (A1-6)
+	\item Instruções de transferência de registrador de status
+	\item Instruções de load/store
+	\item Instruções de co-processamento
+	\item Instruções de gerar excessões
+\end{enumerate}
+
+Neste trabalho serão abordado apenas os quatro primeiros, já que o quinto e o sexto fogem do escopo deste trabalho.
+
+A maioria das instruções de processamento de dados e de co-processamento podem ser atualizados para mudar o seu code flag (Negativo, zero, Carry, Verflow)
+
+Quase todas as instruções contem um campo de 4 bit de condição. Um valor desse campo especifica que a instrução é executada incondicionalmente.
+
+Os próximos 14 valores especificam uma execução condicional, que quando verdadeira, o comando é executada, são eles:
+1) teste para igualdade e desigualdade
+2) teste para $<$, $<=$, $>$ e $=>$ (para aritmética com sinal e sem sinal)
+3) cada code flag
+
+O decimo sexto valor e´usada em poucas instruções e não permite uma execução condicional.
+
+\subsection{Instruções de ramificação}
+
+\label{instrucao_ramificacao}
+
+uma instrução de ramificação possui um offset sem sinal de 24 bits, permitindo avançar ou recuar em 32MB.
+
+Existe a opção BL (branch and link) que preserva o endereço da instrção depois da ramificação no registrador 14, isso permite chamada de sub-rotinas.
+
+\subsection{Instruções de processamento de dados}
+
+Instruções de processamento estão divididas em 4 categorias:
+
+\begin{itemize}
+	\item instruções logica/aritméticas
+	\item instruções de comparações
+	\item instruções de multiplicações
+	\item contar 0s à esquerda
+\end{itemize}
+
+Instruções de carga/armazenamento
+
+Existem 3 tipos de instruções desse tipo:
+
+\begin{itemize}
+	\item carregar e armazenar um registrador
+	\item carregar e armazenar múltiplos registradores
+	\item trocar conteúdos do registrador e da memória
+\end{itemize}
