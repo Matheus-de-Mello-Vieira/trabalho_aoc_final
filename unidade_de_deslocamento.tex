@@ -1,0 +1,6 @@
+\section{Unidade de deslocamento}
+
+O processador ARMv7 inclui em sua Unidade Lógica e Aritmética uma unidade de deslocamento que pode ser acionada para efetuar operações de deslocamento ou rotação em um operando antes do mesmo ser utilizado em instruções aritméticas, lógicas ou de transferência de dados. Na maioria das instruções, o deslocamento é feito dentro do mesmo ciclo de relógio em que a instrução é executada. 
+
+Já que qualquer instrução pode utilizar a unidade de deslocamento, o processador ARMv7 não inclui instruções específicas de deslocamento e rotação, como ocorre o Faíska, já que uma instrução de transferência de dados pode ser usada para efetuar deslocamentos ou rotações, utilizando a unidade de deslocamento em um de seus operando. 
+O uso de descolamentos e rotações em qualquer instrução permite uma grande versatilidade na construção de constantes utilizadas em endereçamento imediato, no cálculo de endereços de elementos de vetores, além de permitir multiplicação por um valor imediato.

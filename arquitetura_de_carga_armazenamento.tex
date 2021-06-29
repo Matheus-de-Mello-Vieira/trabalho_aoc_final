@@ -1,1 +1,24 @@
 \section{Arquitetura de carga / armazenamento}
+
+Como os processadores ARM não possuem instruções especiais para os acessos de entrada e saída, as comunicações feitas entre o processador e os dispositivos são feitas por meio de instruções normais de acesso a memória (LDR “load register” e STR “store register”). Exemplo: 
+
+\begin{verbatim}
+	LDR R2, [R0] @Carrega o valor de R0 no register R2
+	STR R2, [R1] @Armazena o valor de R2 no endereço R1
+\end{verbatim}
+
+Como o intuito de fixação, em LDR, o valor que está entre colchetes é o endereço da memória que queremos carregar algo dela, enquanto em STR, é o local onde queremos armazenar algo.
+
+Seguindo a mesma lógica, é possível utilizarmos valores imediatos e até mesmo registradores como valores Offset, tanto com o intuito de somar quanto de subtrair os valores base ou os endereços da qual será armazenado um valor qualquer. Exemplos:
+
+\begin{verbatim}
+	STR RA,[Rb, #2]! @Armazena o valor de RA no endereço Rb+2
+	LDR RA, [Rc], #1 @Carrega o valor do endereço Rc+1 para ser armazenado em RA
+\end{verbatim}
+
+O exemplo anterior utilizava de um valor imediato (integer) para fazer as alterações devidas.
+
+\begin{verbatim}
+	STR R2 , [R1, R2]! @Armazena o valor de R2 somando com aqueles que já estavam em R1
+	LDR R3 , [R1], R2 @Carrega o valor encontrado em R1 registra o mesmo em R3 e só depois é alterado o valor de R1 = R1+R2
+\end{verbatim}

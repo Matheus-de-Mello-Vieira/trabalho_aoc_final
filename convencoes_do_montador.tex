@@ -1,0 +1,32 @@
+\section{Convenções do montador}
+\subsection{Diretivas}
+As diretivas da linguagem de montagem Arm se assemelham às diretivas da linguagem de montagem Faíska:
+
+\begin{itemize}
+	\item Comentários começam com ‘@’ e se estendem até o fim da linha
+	\item Para modificar o ponto de montagem, usa-se a diretiva .ORG:
+	\subitem \verb|.org   expressão_inteira[@  comentário]|
+	\item Para definir constantes usa-se a diretiva EQU:
+	\subitem \verb|.equ nome expressão_inteira|
+	\subitem Que associa o valor da expressao\_inteira ao símbolo nome
+	\item Para reservar espaço em memória, sem inicialização, usa-se a diretiva   \verb|.SKIP|:
+	\subitem o \verb|[rótulo:] .skip [expressão_inteira] [@comentário]|
+	\subitem Que reserva expressão\_inteira bytes de memória
+	\subitem  Se rótulo é definido, é associado ao endereço do primeiro byte reservado.
+	\item As diretivas \verb|.BYTE|(reserva e inicialização de bytes)  e \verb|.WORD|(reserva e inicialização de palavras) são usadas para reservar e inicializar espaço em memória, sem inicialização, sendo estruturadas assim: 
+	\subitem \verb |[rótulo:] .byte [lista_de_valores] [@comentário]|
+	\subitem \verb |[rótulo:] .word [lista_de_valores] [@comentário]|
+	\subitem Onde que lista\_de\_valores é uma lista de valores de 8 ou 32 bits, separada por vírgulas.
+	\item Para reservar e inicializar uma cadeia de caracteres é utilizada a diretiva .ASCII:
+	\subitem \verb |[rótulo:] .ascii “cadeia_de_caracteres” [@comentário]|
+	\subitem Na qual cadeia\_de\_caracteres é uma cadeia de caracteres limitada por aspas duplas.
+	\item Para “alinhar” dados e instruções em endereços múltiplos de quatro, e para isso é utilizada a diretiva \verb|.ALIGN|:
+	\subitem \verb|.align expressão_inteira|
+	\subitem Que altera o ponto de montaegm para o próximo endereço divisível por $2^\mathrm{expressao\_inteira}$
+\end{itemize}
+
+\subsection{Operando com endereçamento imediato}
+Ao se utilizar um valor imediato como operando, o valor deve ser prefixado com o caractere ‘\#’, por exemplo:
+\begin{verbatim}
+Ao se utilizar um valor imediato como operando, o valor deve ser prefixado com o caractere ‘#’, por exemplo:
+\end{verbatim}

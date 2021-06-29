@@ -2,16 +2,27 @@
 \usepackage{amsmath,amsfonts,amssymb} %matematica
 \usepackage{float}
 \usepackage{multirow}
+\usepackage[brazil]{babel}
 
 
 \title{Trabalho final de ar quitura e organização de computadores}
 
+\author{Daniel Romagnoli Conforte Cesário\\Samuel Ferreira Pimentel\\Matheus de Mello Vieira\\Victor vinicius de lima cunha}
+
 \begin{document}
+	
+	\thispagestyle{empty}
+	\maketitle
+	\newpage
+	\tableofcontents
+	\newpage
+	
 	\input{introducao.tex}
 	\input{modo_de_operacao.tex}
 	\input{registradores.tex}
 	\input{instrucoes.tex}
 	\input{arquitetura_de_carga_armazenamento.tex}
+	\input{unidade_de_deslocamento.tex}
 	\input{convencoes_do_montador.tex}
 	
 	\nocite{edson}
@@ -19,6 +30,7 @@
 	\nocite{patterson}
 	\nocite{pdf_estranho}
 	
+	\newpage
 	\bibliographystyle{plain}
 	\bibliography{referencias.bib}
 \end{document}
